@@ -3,6 +3,7 @@ from typing import Union
 
 import pytz
 from enum import Enum
+from tzlocal import get_localzone
 
 
 class DatetimeEnum(Enum):
@@ -43,10 +44,10 @@ def cur_datetime(fmt: Union[DatetimeEnum, str] = DatetimeEnum.DATETIME_FORMAT) -
     return datetime.datetime.strftime(datetime.datetime.now(), fmt)
 
 
-def cur_datetime_tz(time_zone: str, fmt: Union[DatetimeEnum, str] = DatetimeEnum.DATETIME_FORMAT) -> str:
+def cur_datetime_tz(time_zone: str = 'UTC', fmt: Union[DatetimeEnum, str] = DatetimeEnum.DATETIME_FORMAT) -> str:
     """
     获取指定时区的DateTime
-    :param time_zone:
+    :param time_zone:默认0时区
     :param fmt:
     :return:
     """
@@ -83,12 +84,14 @@ def date_sub(date_str: str, days: int, fmt=DatetimeEnum.DATE_FORMAT) -> str:
 
 
 if __name__ == '__main__':
-    print(cur_date())
-    print(cur_date("%Y%m%d"))
-    print(cur_datetime())
-    print(cur_datetime("%Y%m%d%H%M%S"))
-    print(date_sub(cur_date(), 1))
-    print(date_add(cur_date(), -1))
-    print(date_add(cur_date(), 1))
-    print(cur_datetime_tz("GMT-2"))
-    print(cur_datetime_tz("GMT-8"))
+    pass
+    # print(cur_date())
+    # print(cur_date("%Y%m%d"))
+    # print(cur_datetime())
+    # print(cur_datetime("%Y%m%d%H%M%S"))
+    # print(date_sub(cur_date(), 1))
+    # print(date_add(cur_date(), -1))
+    # print(date_add(cur_date(), 1))
+    # print(cur_datetime_tz())
+    # print(cur_datetime_tz("GMT-2"))
+    # print(cur_datetime_tz("GMT-8"))
