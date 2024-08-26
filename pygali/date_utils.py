@@ -3,7 +3,6 @@ from typing import Union
 
 import pytz
 from enum import Enum
-from tzlocal import get_localzone
 
 
 class DatetimeEnum(Enum):
